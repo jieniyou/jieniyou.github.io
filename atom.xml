@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>解你忧Blog</title>
   
-  
+  <subtitle>欢迎来到解你忧小博客</subtitle>
   <link href="http://jieniyou.github.io/atom.xml" rel="self"/>
   
   <link href="http://jieniyou.github.io/"/>
