@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>如何快速搭建博客</title>
+      <link href="/2022/06/29/ru-he-kuai-su-da-jian-bo-ke/"/>
+      <url>/2022/06/29/ru-he-kuai-su-da-jian-bo-ke/</url>
+      
+        <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">为什么希望你们都有个人网站呢，好处真的太多了，说句最实在的，你的个人网站也可以在你面试公司的时候加分，何乐而不为。</span><br></pre></td></tr></tbody></table></figure><h1 id="网站搭建"><a href="#网站搭建" class="headerlink" title="网站搭建"></a>网站搭建</h1><h2 id="视频教程地址：B站视频地址"><a href="#视频教程地址：B站视频地址" class="headerlink" title="视频教程地址：B站视频地址"></a>视频教程地址：<a href="https://www.bilibili.com/video/BV1je41147Ma/">B站视频地址</a></h2><h2 id="1-nodejs，Git环境搭建："><a href="#1-nodejs，Git环境搭建：" class="headerlink" title="1.nodejs，Git环境搭建："></a>1.nodejs，Git环境搭建：</h2><ul><li><p><a href="https://blog.csdn.net/qq_43285335/article/details/90696126">nodejs搭建教程:</a></p></li><li><p>注意了，像Git这种服务器在国外的东西，它的官网下载这个软件会非常慢，建议直接在百度上搜索git下载与安装，各种软件园都能直接快速下载，留一下版本最好不要太旧就行。</p></li><li><p><a href="https://www.cnblogs.com/xueweisuoyong/p/11914045.html">git搭建教程：</a></p></li><li><p><a href="https://jingyan.baidu.com/article/e8cdb32b0ce12137042bad51.html">补充参考文档（可能你会用到）：</a></p></li><li><p><a href="https://www.cnblogs.com/luyuandatabase/p/12145707.html">配置淘宝云</a></p><h2 id="2-注册GitHub账号并创建仓库"><a href="#2-注册GitHub账号并创建仓库" class="headerlink" title="2.注册GitHub账号并创建仓库"></a>2.注册GitHub账号并创建仓库</h2><ol><li>注册就不用我说了，创建仓库视频里有，然后这个也很简单，不会就百度（应该没人去百度的，太简单了）</li><li>格式要求：gfyuan.github.io</li><li>下面两个东西选其一我在视频里面没有演示，因为我早已经弄好了，你们看着弄。</li><li><a href="https://www.xuanfengge.com/using-ssh-key-link-github-photo-tour.html">参考文档（可能用到）——GitHub的ssh密匙添加：</a></li><li><a href="https://www.jianshu.com/p/3f4b2ede5a93">参考文档（可能用到）——Gitee的ssh密匙添加：</a></li></ol><h2 id="3-快速利用hexo搭建博客："><a href="#3-快速利用hexo搭建博客：" class="headerlink" title="3.快速利用hexo搭建博客："></a>3.快速利用hexo搭建博客：</h2><ol><li><a href="https://hexoscript.gitbook.io/hexo-script/">脚本教程</a></li><li><a href="https://blog.csdn.net/jspnetcn/article/details/104111651">matery主题安装及优化</a></li></ol></li></ul><p><a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">matery主题官网：</a></p><h2 id="博客搭建完成"><a href="#博客搭建完成" class="headerlink" title="博客搭建完成"></a>博客搭建完成</h2><p><a href="https://rika0-0.github.io/">我的博客</a></p><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul><li>自行下载</li><li>vs code</li></ul><h2 id="需要的编辑软件"><a href="#需要的编辑软件" class="headerlink" title="需要的编辑软件"></a>需要的编辑软件</h2><ul><li>Typora<br>个人建议在国内的网站上面下载，不要去官网，下载慢</li><li>VS code<br>轻量级文档编辑器</li></ul><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1586329259&amp;di=4b52fb528ca0962c5b80fef165441db4&amp;src=http://image.cilacila.com/uploads/20190112/21/1547301428-yHBpuVbPFO.jpg" alt="img"></p><h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p><a href="https://code.visualstudio.com/">VScode下载地址</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2022/06/28/hello-world/"/>
       <url>/2022/06/28/hello-world/</url>
