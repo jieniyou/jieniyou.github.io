@@ -276,13 +276,6 @@
         transform: scale(1.1);
     }
 
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
     .github-corner:hover .octo-arm {
         animation: a 0.56s ease-in-out;
     }
@@ -1063,12 +1056,11 @@
             
             <span id="year">2022</span>
             <a href="/about" target="_blank">解你忧</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <!--|&nbsp;Powered by&nbsp;-->
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">464</span>&nbsp;字
+                class="white-color">11.6k</span>&nbsp;字
             
             
             
@@ -1284,6 +1276,14 @@ $(function () {
     </a>
 </div>
 
+	
+	<script type="text/javascript">
+	  var windowWidth = $(window).width();
+	  if (windowWidth > 480) {
+	    document.write('<script type="text/javascript" src="/js/src/snow.js"><\/script>');
+	  }
+	</script>
+	
 
     <script src="/libs/materialize/materialize.min.js"></script>
     <script src="/libs/masonry/masonry.pkgd.min.js"></script>
@@ -1323,9 +1323,16 @@ $(function () {
 
 	
     
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
 
     
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     

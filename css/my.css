@@ -1,1 +1,59 @@
 /* Here is your custom css styles. */
+
+nav a {
+	color: aqua;
+}
+body {
+    background: linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)) 0% 0% / cover, url("https://ae01.alicdn.com/kf/H18a4b998752a4ae68b8e85d432a5aef0l.png"), url("https://ae01.alicdn.com/kf/H21b5f6b8496141a1979a33666e1074d9x.jpg") 0px 0px;
+    margin: 0;
+    color: #38B0DE;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+/* body {
+    background: linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)) 0% 0% / cover, url("https://ae01.alicdn.com/kf/H18a4b998752a4ae68b8e85d432a5aef0l.png"), url("https://ae01.alicdn.com/kf/H21b5f6b8496141a1979a33666e1074d9x.jpg") 0px 0px;
+    background-attachment: fixed;
+    margin: 0;
+    color: ##e87158;
+} */
+
+.cover-btns a:hover {
+	border: 1px solid #ab00f4;
+	background-color: #ab00f4;
+	box-shadow: 0 14px 26px -12px rgba(233, 30, 99, 0.42),
+		0 4px 23px 0 rgba(0, 0, 0, 0.12),
+		0 8px 10px -5px rgba(233, 30, 99, 0.2);
+}
+
+.chip-container .chip:hover {
+    color: #fff;
+    background: linear-gradient(to right, #ff55ff 0%, #ff0000 100%) !important;
+}
+
+.github-corner svg {
+	color: #D98719;
+	fill: #E9C2A6;
+	height: 64px;
+	width: 64px;
+}
+
+article .article-tags .chip {
+	color: hotpink;
+}
+
+footer .copy-right {
+	color: #FF1CAE;
+}
+
+footer a {
+	color: #FF6EC7;
+}
+
+.white-color {
+	color: #FF6EC7;
+}
+
+.top-scroll{
+	bottom: 14.75rem;
+	right: 55px;
+}
