@@ -32,8 +32,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script> -->
 	
 	<!-- 预加载css -->
-	
-
+	<link rel="stylesheet" type="text/css" href="/css/loading.css">
 		
     <script src="/libs/jquery/jquery.min.js"></script>
 
@@ -56,7 +55,30 @@
 
 
 <body>
-    <header class="navbar-fixed">
+	
+	
+<div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+        <div class="configure-border-1">
+            <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+            <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+    </div>
+</div>
+<script>
+    window.addEventListener('load', function(){
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+    }, false)
+</script>
+
+	
+	<header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -354,7 +376,7 @@
 
 <script>
     // $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
-	$('.bg-cover').css('background-image', 'url(/medias/banner/2.jpg)');
+	$('.bg-cover').css('background-image', 'url(/medias/banner/4.jpg)');
 
 </script>
 
@@ -375,37 +397,10 @@
             <div class="tag-chips">
                 
                 
-                <a href="/tags/Nodejs/" title="Nodejs: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Nodejs" style="background-color: #F9EBEA;">Nodejs
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Vue/" title="Vue: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Vue" style="background-color: #F5EEF8;">Vue
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/blog/" title="blog: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="blog" style="background-color: #D5F5E3;">blog
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/Java/" title="Java: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Java" style="background-color: #E8F8F5;">Java
+                            data-tagname="Java" style="background-color: #F9EBEA;">Java
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -414,7 +409,34 @@
                 <a href="/tags/Spring/" title="Spring: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Spring" style="background-color: #FEF9E7;">Spring
+                            data-tagname="Spring" style="background-color: #F5EEF8;">Spring
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Nodejs/" title="Nodejs: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Nodejs" style="background-color: #D5F5E3;">Nodejs
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Vue/" title="Vue: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Vue" style="background-color: #E8F8F5;">Vue
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/blog/" title="blog: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="blog" style="background-color: #FEF9E7;">blog
                         <span class="tag-length">1</span>
                     </span>
                 </a>

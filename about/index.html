@@ -32,8 +32,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script> -->
 	
 	<!-- 预加载css -->
-	
-
+	<link rel="stylesheet" type="text/css" href="/css/loading.css">
 		
     <script src="/libs/jquery/jquery.min.js"></script>
 
@@ -56,7 +55,30 @@
 
 
 <body>
-    <header class="navbar-fixed">
+	
+	
+<div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+        <div class="configure-border-1">
+            <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+            <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+    </div>
+</div>
+<script>
+    window.addEventListener('load', function(){
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+    }, false)
+</script>
+
+	
+	<header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -361,7 +383,7 @@
 
 <script>
     // $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
-	$('.bg-cover').css('background-image', 'url(/medias/banner/4.jpg)');
+	$('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
 
 </script>
 
@@ -608,7 +630,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"博客","value":1},{"name":"生活","value":2},{"name":"学习","value":1}],
+                data: [{"name":"学习","value":1},{"name":"博客","value":1},{"name":"生活","value":2}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -632,7 +654,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Nodejs","Vue","blog","Java","Spring"]
+                data: ["Java","Spring","Nodejs","Vue","blog"]
             }
         ],
         yAxis: [
@@ -815,6 +837,14 @@
         <div class="tag-chips center-align">
             
             
+            
+            
+            <a href="/tags/Spring/">
+                <span class="chip center-align waves-effect waves-light chip-default">Spring</span>
+            </a>
+            
+            
+            
             <a href="/tags/Nodejs/">
                 <span class="chip center-align waves-effect waves-light chip-default">Nodejs</span>
             </a>
@@ -829,14 +859,6 @@
             
             <a href="/tags/blog/">
                 <span class="chip center-align waves-effect waves-light chip-default">blog</span>
-            </a>
-            
-            
-            
-            
-            
-            <a href="/tags/Spring/">
-                <span class="chip center-align waves-effect waves-light chip-default">Spring</span>
             </a>
             
             

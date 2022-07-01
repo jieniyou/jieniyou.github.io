@@ -32,8 +32,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script> -->
 	
 	<!-- 预加载css -->
-	
-
+	<link rel="stylesheet" type="text/css" href="/css/loading.css">
 		
     <script src="/libs/jquery/jquery.min.js"></script>
 
@@ -56,7 +55,30 @@
 
 
 <body>
-    <header class="navbar-fixed">
+	
+	
+<div id="loading-box">
+    <div class="loading-left-bg"></div>
+    <div class="loading-right-bg"></div>
+    <div class="spinner-box">
+        <div class="configure-border-1">
+            <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+            <div class="configure-core"></div>
+        </div>
+        <div class="loading-word">加载中...</div>
+    </div>
+</div>
+<script>
+    window.addEventListener('load', function(){
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+    }, false)
+</script>
+
+	
+	<header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -354,7 +376,7 @@
 
 <script>
     // $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
-	$('.bg-cover').css('background-image', 'url(/medias/banner/5.jpg)');
+	$('.bg-cover').css('background-image', 'url(/medias/banner/2.jpg)');
 
 </script>
 
@@ -376,10 +398,19 @@
                 
                 
                 
+                <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="学习: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">学习
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="博客: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">博客
+                            style="background-color: #F5EEF8;">博客
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -388,17 +419,8 @@
                 <a href="/categories/%E7%94%9F%E6%B4%BB/" title="生活: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            style="background-color: #F5EEF8;">生活
+                            style="background-color: #D5F5E3;">生活
                         <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E5%AD%A6%E4%B9%A0/" title="学习: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D5F5E3;">学习
-                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
