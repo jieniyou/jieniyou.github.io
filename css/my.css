@@ -1,12 +1,13 @@
 /* Here is your custom css styles. */
-@font-face {
+/* 字体严重影响我网站的速度 */
+/* @font-face {
 	font-family: 逸龙快书;
 	src: url(../fonts/my_font.TTF);
 }
 header .brand-logo .logo-span {
 	font-family: 逸龙快书;
 	font-size: 3.0rem;
-}
+} */
 nav a {
 	color: aqua;
 }
