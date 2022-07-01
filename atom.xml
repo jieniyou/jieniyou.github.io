@@ -6,7 +6,7 @@
   <link href="http://jieniyou.github.io/atom.xml" rel="self"/>
   
   <link href="http://jieniyou.github.io/"/>
-  <updated>2022-06-30T08:53:37.393Z</updated>
+  <updated>2022-07-01T08:28:29.761Z</updated>
   <id>http://jieniyou.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Matery 主题预加载</title>
+    <link href="http://jieniyou.github.io/2022/07/01/matery-zhu-ti-yu-jia-zai/"/>
+    <id>http://jieniyou.github.io/2022/07/01/matery-zhu-ti-yu-jia-zai/</id>
+    <published>2022-07-01T08:07:03.000Z</published>
+    <updated>2022-07-01T08:28:29.761Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在 Matery 主题配置文件 &lt;code&gt;_config.yml&lt;/code&gt; 中新增配置属性 &lt;code&gt;preloader&lt;/code&gt;。&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="教程" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>雨、落在夏季</title>
