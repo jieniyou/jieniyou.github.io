@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Matery 主题预加载, 博客制作,解你忧">
+    <meta name="keywords" content="Java开发中token 的使用, 博客制作,解你忧">
     <meta name="description" content="如果我真的存在，也是因为你需要我。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Matery 主题预加载 | 解你忧Blog</title>
+    <title>Java开发中token 的使用 | 解你忧Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -386,12 +386,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Matery 主题预加载</h1>
+                    <h1 class="description center-align post-title">Java开发中token 的使用</h1>
                 </div>
             </div>
         </div>
@@ -513,9 +513,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/Token/">
+                                <span class="chip bg-color">Token</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -527,8 +535,8 @@
                                 学习
                             </a>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%95%99%E7%A8%8B/" class="post-category">
-                                教程
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
                             </a>
                         
                     </div>
@@ -540,28 +548,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-01
+                    2023-05-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-01
+                    2023-05-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    690
+                    993
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -584,155 +592,206 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在 Matery 主题配置文件 <code>_config.yml</code> 中新增配置属性 <code>preloader</code>。</p>
-<pre class="line-numbers language-none"><code class="language-none"># 是否开启页面加载动画 true 开启，false 关闭
-preloader:
-  enable: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h1 id="Java开发中token-的使用"><a href="#Java开发中token-的使用" class="headerlink" title="Java开发中token 的使用"></a>Java开发中token 的使用</h1><h2 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h2><p>流程： 1.建立token工具类，先编辑token签名sign()：设置超时时长、token秘钥。 2.配置拦截器类，拦截器中重写preHandle()方法，对每次请求进行自定义的拦截操作。 3.建立配置类：定义拦截与不拦截的接口信息。</p>
+<p>页面请求登录接口→登录成功后，返回登录信息+token秘钥给前端→前端记住密钥信息，并赋予每个接口（例：在每个接口访问时将秘钥信息放置于headers中的参数下）→拦截器接到请求，从headers获取token密钥进行匹配，通过则继续访问，不通过则返回提示信息。</p>
+<h3 id="1-建立token工具类，先编辑token签名sign-：设置超时时长、token秘钥。"><a href="#1-建立token工具类，先编辑token签名sign-：设置超时时长、token秘钥。" class="headerlink" title="1.建立token工具类，先编辑token签名sign()：设置超时时长、token秘钥。"></a>1.建立token工具类，先编辑token签名sign()：设置超时时长、token秘钥。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import lombok.extern.slf4j.Slf4j;
 
-<p>在 Matery 主题目录 <code>/layout/_widget</code> 下新增文件 <code>loading.ejs</code>，将以下内容写入 <code>loading.ejs</code>。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>theme<span class="token punctuation">.</span>preloader<span class="token punctuation">.</span>enable<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">%</span><span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"loading-box"</span><span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loading-left-bg"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loading-right-bg"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"spinner-box"</span><span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"configure-border-1"</span><span class="token operator">&gt;</span>
-            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"configure-core"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"configure-border-2"</span><span class="token operator">&gt;</span>
-            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"configure-core"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loading-word"</span><span class="token operator">&gt;</span>加载中<span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
-    window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'load'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style<span class="token punctuation">.</span>overflow <span class="token operator">=</span> <span class="token string">'auto'</span><span class="token punctuation">;</span>
-        document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'loading-box'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"loaded"</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">}</span> <span class="token operator">%</span><span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+import java.io.UnsupportedEncodingException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-<p>接着在 Matery 主题目录 <code>/css</code> 下新增 <code>loading.css</code> ，并将以下内容写入 <code>loading.css</code>。</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">#loading-box .loading-left-bg,
-#loading-box .loading-right-bg</span> <span class="token punctuation">{</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
-  <span class="token property">z-index</span><span class="token punctuation">:</span> 1000<span class="token punctuation">;</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> #37474f<span class="token punctuation">;</span>
-  <span class="token property">transition</span><span class="token punctuation">:</span> all 0.5s<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+@Slf4j
+public class JwtUtil {
+  /**
+     * 过期时间
+     */
+  private static final long EXPIRE_TIME = 15 * 60 * 1000;
+  /**
+      * token秘钥
+      */
+  private static final String TOKEN_SECRET = "c369a1e4-43ee-4e1e-b130-2b952f1ba9ad";
+  /**
+ * 签名方法
+ * @Param userName  userName
+ * @Param role  role
+ * @return String role
+ */
+  public static String sign(String userName, String role) {
+    log.info("sign begin.");
+    try {
+      // 过期时间
+      Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);
+      // 秘钥和加密算法
+      Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECRET);
+      // headers
+      Map&lt;String, Object&gt; herders = new HashMap&lt;&gt;(2);
+      herders.put("typ", "JWT");
+      herders.put("alg", "HS256");
+      log.info("sign end.");
+      return JWT.create()
+        .withHeader(herders)
+        .withClaim("userName", userName)
+        .withClaim("role", role)
+        .withExpiresAt(date)
+        .sign(algorithm);
+    } catch (UnsupportedEncodingException exception) {
+      exception.printStackTrace();
+      log.info("sign error.");
+      return exception.getMessage();
+    }
+  }
 
-<span class="token selector">#loading-box .loading-right-bg</span> <span class="token punctuation">{</span>
-  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+  /**
+ * token 校验方法
+ * @Param userName  userName
+ * @return String role
+ */
+  public static boolean verify(String token) {
+    log.info("verify begin.");
+    try {
+      Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECRET);
+      JWTVerifier verifier = JWT.require(algorithm).build();
+      verifier.verify(token);
+      log.info("verify end.");
+      return true;
+    } catch (UnsupportedEncodingException exception) {
+      log.info("verify error.");
+      exception.printStackTrace();
+      return false;
+    }
+  }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-controller层登录操作中设置登录校验及token插入："><a href="#2-controller层登录操作中设置登录校验及token插入：" class="headerlink" title="2.controller层登录操作中设置登录校验及token插入："></a>2.controller层登录操作中设置登录校验及token插入：</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">/**
+ * @program: smartOperationTest
+ * @description: 用户操作
+ * @author: 作者名字
+ * @create: 2021-07-15 10:37
+ **/
+@Controller
+@RequestMapping("/user")
+@Api("userActionController")
+@CrossOrigin(value = "*", maxAge = 3600)
+@Slf4j
+public class UserActionController {
 
-<span class="token selector">#loading-box &gt; .spinner-box</span> <span class="token punctuation">{</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
-  <span class="token property">z-index</span><span class="token punctuation">:</span> 1001<span class="token punctuation">;</span>
-  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
-  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 100vh<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+  @Autowired
+  UserInfoServiceImpl userInfoService;
 
-<span class="token selector">#loading-box .spinner-box .configure-border-1</span> <span class="token punctuation">{</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-  <span class="token property">padding</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 115px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 115px<span class="token punctuation">;</span>
-  <span class="token property">background</span><span class="token punctuation">:</span> #ffab91<span class="token punctuation">;</span>
-  <span class="token property">animation</span><span class="token punctuation">:</span> configure-clockwise 3s ease-in-out 0s infinite alternate<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+  @RequestMapping(value = "/login", method = RequestMethod.GET)
+  @ApiOperation(value = "登录", notes = "")
+  @ResponseBody
+  public CommonResultBO userLogin(@RequestParam() String username, @RequestParam() String password) {
+    CommonResultBO resultBO = userInfoService.getUserInfo(username, password);
+    Integer statusCode = resultBO.getStatusCode();
+    if (statusCode == 200) {// 登录校验通过则插入token信息
+      UserInfo userInfo = (UserInfo)resultBO.getData();
+      String token = JwtUtil.sign(username, userInfo.getRole());
+      resultBO.setData(token);
+      return resultBO;
+    }
+    resultBO.setData("");
+    resultBO.setStatusCode(1);
+    resultBO.setStatusMessage("token failed");
+    return resultBO;
+  }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token selector">#loading-box .spinner-box .configure-border-2</span> <span class="token punctuation">{</span>
-  <span class="token property">left</span><span class="token punctuation">:</span> -115px<span class="token punctuation">;</span>
-  <span class="token property">padding</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 115px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 115px<span class="token punctuation">;</span>
-  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span>63<span class="token punctuation">,</span> 249<span class="token punctuation">,</span> 220<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>45deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token property">animation</span><span class="token punctuation">:</span> configure-xclockwise 3s ease-in-out 0s infinite alternate<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<h3 id="3-设置拦截器"><a href="#3-设置拦截器" class="headerlink" title="3.设置拦截器"></a>3.设置拦截器</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerInterceptor;
 
-<span class="token selector">#loading-box .spinner-box .loading-word</span> <span class="token punctuation">{</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-  <span class="token property">color</span><span class="token punctuation">:</span> #ffffff<span class="token punctuation">;</span>
-  <span class="token property">font-size</span><span class="token punctuation">:</span> 0.8rem<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-<span class="token selector">#loading-box .spinner-box .configure-core</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> #37474f<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+/**
+ * @program: smartOperationTest
+ * @description: 拦截器
+ * @author: 作者名字
+ * @create: 2021-07-15 16:20
+ **/
+@Component
+@Slf4j
+public class TokenInterceptor implements HandlerInterceptor {
 
-<span class="token selector">div.loaded div.loading-left-bg</span> <span class="token punctuation">{</span>
-  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-100%<span class="token punctuation">,</span> 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object object) throws IOException {
+    log.info("preHandle begin.");
+    response.setCharacterEncoding("utf-8");
+    String token = request.getHeader("accessToken");
+    log.info("preHandle begin TOKEN: {}." + token);
+    // token通过验证 返回true 继续访问
+    if (null != token) {
+      boolean result = JwtUtil.verify(token) ;
+      if (result) {
+        log.info("preHandle end.");
+        return true;
+      }
+    }
+    // token验证不通过 返回失败提示
+    CommonResultBO commonResultBO = CommonResultBO.init(null, -1, "failed", "token invalid");
+    response.getWriter().write(JSONObject.toJSONString(commonResultBO));
+    log.info("preHandle end.");
+    return false;
+  }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token selector">div.loaded div.loading-right-bg</span> <span class="token punctuation">{</span>
-  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>100%<span class="token punctuation">,</span> 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<h3 id="4-建立配置类，明确拦截与不拦截的接口：-拦截一层路径，-拦截-后全布路径。"><a href="#4-建立配置类，明确拦截与不拦截的接口：-拦截一层路径，-拦截-后全布路径。" class="headerlink" title="4.建立配置类，明确拦截与不拦截的接口：/*拦截一层路径，/**拦截/后全布路径。"></a>4.建立配置类，明确拦截与不拦截的接口：/*拦截一层路径，/**拦截/后全布路径。</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java">import com.hawk.smartoperationtest.common.TokenInterceptor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.*;
 
-<span class="token selector">div.loaded div.spinner-box</span> <span class="token punctuation">{</span>
-  <span class="token property">display</span><span class="token punctuation">:</span> none <span class="token important">!important</span><span class="token punctuation">;</span> 
-<span class="token punctuation">}</span>
+/**
+ * @program: smartOperationTest
+ * @description: 自定义拦截器配置
+ * @author: 作者名字
+ * @create: 2021-07-15 16:48
+ **/
+@Configuration
+@Slf4j
+public class MvcConfig extends WebMvcConfigurationSupport {
 
-<span class="token atrule"><span class="token rule">@keyframes</span> configure-clockwise</span> <span class="token punctuation">{</span>
-  <span class="token selector">0%</span> <span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+  @Autowired
+  TokenInterceptor tokenInterceptor;
 
-  <span class="token selector">25%</span> <span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>90deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+  @Override
+  protected void addInterceptors(InterceptorRegistry registry) {
+    //添加自定义拦截器
+    log.info("addInterceptors begin.");
+    InterceptorRegistration patterns = registry.addInterceptor(tokenInterceptor).addPathPatterns("/mary/**")    //指定拦截的url地址
+      .excludePathPatterns("/user/**", "/swagger-resources/**", "/v2/**");
+    log.info("addInterceptors :" + patterns.toString());
+  }
 
-  <span class="token selector">50%</span> <span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>180deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+  /**
+    * 发现如果继承了WebMvcConfigurationSupport，则在yml中配置的相关内容会失效。
+    * 配置拦截器后swagger访问会被拦截 按如下配置可保持swagger访问
+    * 需要重新指定静态资源
+    * @param registry
+    */
+  @Override
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    //registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+    registry.addResourceHandler("swagger-ui.html")
+      .addResourceLocations("classpath:/META-INF/resources/");
+    registry.addResourceHandler("/webjars/**")
+      .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    //super.addResourceHandlers(registry);
+  }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-  <span class="token selector">75%</span> <span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>270deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
 
-  <span class="token selector">100%</span> <span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>360deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<p>登录验证通过后，再次进行接口访问时，header中就要携带token信息进行校验。例：</p>
+<p>accessToken：xxxtoken加密信息xxxx</p>
+<h3 id="verify-也可以用于任意地方进行token校验。"><a href="#verify-也可以用于任意地方进行token校验。" class="headerlink" title="verify()也可以用于任意地方进行token校验。"></a>verify()也可以用于任意地方进行token校验。</h3><p>解析token：例</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">DecodedJWT verify = verifier.verify(token);
+String role = verify.getClaim("role").asString();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<span class="token atrule"><span class="token rule">@keyframes</span> configure-xclockwise</span> <span class="token punctuation">{</span>
-  <span class="token selector">0%</span> <span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>45deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token selector">25%</span> <span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>-45deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token selector">50%</span> <span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>-135deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token selector">75%</span> <span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>-225deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token selector">100%</span> <span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>-315deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>然后找到 Matery 主题目录 <code>/layout/_partial</code> 下找到 <code>head.ejs</code>，并在 <code>&lt;head&gt;</code> 标签中添加以下内容引入 <code>loading.css</code> 文件。</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for(<span class="token punctuation">'</span>/css/loading.css<span class="token punctuation">'</span>) %&gt;<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>再找到 Matery 主题目录 <code>/layout</code> 下找到 <code>layout.ejs</code>，然后在 <code>&lt;body&gt;</code> 标签下引入 <code>loading.ejs</code>。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_widget/loading'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这里建议直接添加在 <code>&lt;body&gt;</code> 标签所有内容的最前面。</p>
-<p>至此， Butterfly 的加载动画就移植到 Matery 主题完成了，只要主题配置文件的 <code>preloader</code> 的 <code>enable</code> 属性为 <code>true</code> 那么每个页面加载的时候，都会展示加载动画，如果将 <code>preloader</code> 的 <code>enable</code> 设置为 <code>false</code> 那么就可以关闭加载动画了。</p>
-<h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><p> 如果用的是其他主题也可以参考这个思路，将加载动画代码块放到 <code>&lt;body&gt;</code> 标签中，将加载动画的 css 文件引入到页面的 <code>&lt;head&gt;</code> 中，然后再监听页面加载完成事件，页面加载完成后将加载动画隐藏就行了。</p>
 
                 
             </div>
@@ -759,7 +818,7 @@ preloader:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jieniyou.github.io/2022/07/01/matery-zhu-ti-yu-jia-zai/">http://jieniyou.github.io/2022/07/01/matery-zhu-ti-yu-jia-zai/</a>
+                    <a href="http://jieniyou.github.io/2023/05/23/java-token-01/">http://jieniyou.github.io/2023/05/23/java-token-01/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -796,7 +855,15 @@ preloader:
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/Token/">
+                                    <span class="chip bg-color">Token</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -971,13 +1038,13 @@ preloader:
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/07/01/shen-se-mo-shi/">
+                <a href="/2023/05/23/vue2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Matery主题自定义(一)黑夜模式">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Vue详细了解">
                         
-                        <span class="card-title">Matery主题自定义(一)黑夜模式</span>
+                        <span class="card-title">Vue详细了解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -988,19 +1055,31 @@ preloader:
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-05-23
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
-                                    教程
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1012,13 +1091,13 @@ preloader:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/30/yu-luo-zai-xia-ji/">
+                <a href="/2023/05/23/vue-token-01/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="雨、落在夏季">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="解析如何在vue前端处理token">
                         
-                        <span class="card-title">雨、落在夏季</span>
+                        <span class="card-title">解析如何在vue前端处理token</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1029,19 +1108,35 @@ preloader:
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category">
-                                    生活
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                    <a href="/tags/Token/">
+                        <span class="chip bg-color">Token</span>
+                    </a>
+                    
                 </div>
                 
             </div>

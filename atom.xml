@@ -6,7 +6,7 @@
   <link href="http://jieniyou.github.io/atom.xml" rel="self"/>
   
   <link href="http://jieniyou.github.io/"/>
-  <updated>2023-05-23T13:07:02.096Z</updated>
+  <updated>2023-05-23T14:02:26.895Z</updated>
   <id>http://jieniyou.github.io/</id>
   
   <author>
@@ -15,6 +15,173 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue简单了解</title>
+    <link href="http://jieniyou.github.io/2023/05/23/vue/"/>
+    <id>http://jieniyou.github.io/2023/05/23/vue/</id>
+    <published>2023-05-23T13:54:30.000Z</published>
+    <updated>2023-05-23T14:02:26.895Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Vue&quot;&gt;&lt;a href=&quot;#Vue&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="前端" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="Vue" scheme="http://jieniyou.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue详细了解</title>
+    <link href="http://jieniyou.github.io/2023/05/23/vue2/"/>
+    <id>http://jieniyou.github.io/2023/05/23/vue2/</id>
+    <published>2023-05-23T13:54:30.000Z</published>
+    <updated>2023-05-23T13:55:05.434Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;一、前端核心分析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;1.1、概述&lt;/strong&gt;&lt;br&gt;Soc原则：关注点分离原则&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Vue 的核心库只关注视图层，方便与第三方库或既有项目整合。&lt;/p&gt;
+&lt;p&gt;HTML +</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="前端" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="Vue" scheme="http://jieniyou.github.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java开发中token 的使用</title>
+    <link href="http://jieniyou.github.io/2023/05/23/java-token-01/"/>
+    <id>http://jieniyou.github.io/2023/05/23/java-token-01/</id>
+    <published>2023-05-23T13:48:30.000Z</published>
+    <updated>2023-05-23T13:53:43.989Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Java开发中token-的使用&quot;&gt;&lt;a href=&quot;#Java开发中token-的使用&quot; class=&quot;headerlink&quot; title=&quot;Java开发中token 的使用&quot;&gt;&lt;/a&gt;Java开发中token 的使用&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="后端" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Java" scheme="http://jieniyou.github.io/tags/Java/"/>
+    
+    <category term="Token" scheme="http://jieniyou.github.io/tags/Token/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解析如何在vue前端处理token</title>
+    <link href="http://jieniyou.github.io/2023/05/23/vue-token-01/"/>
+    <id>http://jieniyou.github.io/2023/05/23/vue-token-01/</id>
+    <published>2023-05-23T13:48:30.000Z</published>
+    <updated>2023-05-23T13:50:02.083Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;解析如何在vue前端处理token&quot;&gt;&lt;a href=&quot;#解析如何在vue前端处理token&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="前端" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="Vue" scheme="http://jieniyou.github.io/tags/Vue/"/>
+    
+    <category term="Token" scheme="http://jieniyou.github.io/tags/Token/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>了解ssessionStorage和localStorage</title>
+    <link href="http://jieniyou.github.io/2023/05/23/sessionstorage-localstorage/"/>
+    <id>http://jieniyou.github.io/2023/05/23/sessionstorage-localstorage/</id>
+    <published>2023-05-23T13:46:30.000Z</published>
+    <updated>2023-05-23T13:48:05.158Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1-下定义，什么是sessionStorage、localStorage？&quot;&gt;&lt;a href=&quot;#1-下定义，什么是sessionStorage、localStorage？&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="前端" scheme="http://jieniyou.github.io/categories/%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="Description" scheme="http://jieniyou.github.io/tags/Description/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 详细安装教程（详解 Git 安装过程的每一个步骤）</title>
+    <link href="http://jieniyou.github.io/2023/05/23/git-xiang-xi-an-zhuang-jiao-cheng-xiang-jie-git-an-zhuang-guo-cheng-de-mei-yi-ge-bu-zou/"/>
+    <id>http://jieniyou.github.io/2023/05/23/git-xiang-xi-an-zhuang-jiao-cheng-xiang-jie-git-an-zhuang-guo-cheng-de-mei-yi-ge-bu-zou/</id>
+    <published>2023-05-23T13:44:11.000Z</published>
+    <updated>2023-05-23T13:44:40.085Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Git-详细安装教程（详解-Git-安装过程的每一个步骤）&quot;&gt;&lt;a href=&quot;#Git-详细安装教程（详解-Git-安装过程的每一个步骤）&quot; class=&quot;headerlink&quot; title=&quot;Git 详细安装教程（详解 Git</summary>
+        
+      
+    
+    
+    
+    <category term="Git" scheme="http://jieniyou.github.io/categories/Git/"/>
+    
+    
+    <category term="Description" scheme="http://jieniyou.github.io/tags/Description/"/>
+    
+  </entry>
   
   <entry>
     <title>如何书写和上传文章</title>
@@ -155,9 +322,9 @@
     
     
     
-    <category term="Nodejs" scheme="http://jieniyou.github.io/tags/Nodejs/"/>
-    
     <category term="Vue" scheme="http://jieniyou.github.io/tags/Vue/"/>
+    
+    <category term="Nodejs" scheme="http://jieniyou.github.io/tags/Nodejs/"/>
     
   </entry>
   
