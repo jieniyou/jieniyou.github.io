@@ -6,7 +6,7 @@
   <link href="http://jieniyou.github.io/atom.xml" rel="self"/>
   
   <link href="http://jieniyou.github.io/"/>
-  <updated>2022-07-01T14:18:26.168Z</updated>
+  <updated>2023-05-23T13:00:07.202Z</updated>
   <id>http://jieniyou.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何书写和上传文章</title>
+    <link href="http://jieniyou.github.io/2023/05/23/ru-he-shu-xie-he-shang-chuan-wen-zhang/"/>
+    <id>http://jieniyou.github.io/2023/05/23/ru-he-shu-xie-he-shang-chuan-wen-zhang/</id>
+    <published>2023-05-23T12:29:11.000Z</published>
+    <updated>2023-05-23T13:00:07.202Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;在创建完博客之后&quot;&gt;&lt;a href=&quot;#在创建完博客之后&quot; class=&quot;headerlink&quot; title=&quot;在创建完博客之后&quot;&gt;&lt;/a&gt;在创建完博客之后&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;在&lt;img</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Description" scheme="http://jieniyou.github.io/tags/Description/"/>
+    
+  </entry>
   
   <entry>
     <title>Matery主题自定义(一)黑夜模式</title>
